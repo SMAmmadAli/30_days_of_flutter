@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_flutter/second_page.dart';
 
 
 void main(List<String> args) {
@@ -6,19 +7,12 @@ void main(List<String> args) {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("Hello Flutter")
-          ),
-        ),
-      ),      
+      home: HomePage(),
     );
   }
 }
