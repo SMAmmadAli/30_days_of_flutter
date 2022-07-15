@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:full_flutter/second_page.dart';
+import 'package:full_flutter/Pages/Login_page.dart';
+import 'package:full_flutter/Pages/second_page.dart';
 
 
 void main(List<String> args) {
@@ -12,7 +13,19 @@ class MyApp extends StatelessWidget {
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      // home: HomePage(),
+      themeMode: ThemeMode.light,
+      darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(primarySwatch: Colors.lime),
+
+      initialRoute: "/home",
+
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home" : (context) => HomePage(),
+        "/login" : (context) => LoginPage(),
+      },
     );
+
   }
 }
