@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_flutter/utils/routes.dart';
 
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -16,11 +17,40 @@ class HomePage extends StatelessWidget {
           title: Center(child: Text("Catalog App")),
         ),
         body: Center(
-          child: Container(
-            child: Text("$sentance $bnum \n$name \n$num")
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                 Padding(
+                   padding: const EdgeInsets.all(100.0),
+                   child: Container(
+                      child: Text("$sentance $bnum \n$name \n$num")
+                    
+                ),
+                 ),
+                SizedBox(
+                  height: 40.0
+                ),
+                ElevatedButton(
+                child: Text("Go to Login Page"),
+                style: TextButton.styleFrom(
+                  minimumSize: Size(150.0,40.0),
+                  backgroundColor: Colors.blueAccent,
+                  primary: Colors.white,
+                  textStyle: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    )
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, MyRoutes.loginRoute);
+                },
+              )
+              ],
+            ),
           ),
         ),
         drawer: Drawer(),
+        
       );
   }
 }
