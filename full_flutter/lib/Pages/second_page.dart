@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
    final String name = "Babar Azam";
    final int num = 56;
    final bool isMale = true;
+
    var day = "Friday";
     const pi = 3.142;
 
