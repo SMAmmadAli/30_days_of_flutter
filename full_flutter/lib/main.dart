@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:full_flutter/Pages/Login_page.dart';
 import 'package:full_flutter/Pages/Home.dart';
+import 'package:full_flutter/models/catalogs.dart';
 import 'package:full_flutter/utils/routes.dart';
 import 'package:full_flutter/widgets/themes.dart';
 import 'package:flutter/services.dart';
@@ -23,11 +24,17 @@ class _MyAppState extends State<MyApp> {
     loadData();
   }
 
-  loadData() async {
-    final CatalogJson = await rootBundle.loadString("assets/files/catalog.json");
+  loadData()async{
+    final CatalogJson = 
+    await rootBundle.loadString("assets/files/catalog.json");
     final decodedData = jsonDecode(CatalogJson);
     var productData = decodedData("products");
-    print(productData);
+    // List<Item> list =
+    CatalogModel.items =
+        List.from(productData)
+        .map<Item>((item) => Item.fromMap(item))
+        .toList();
+        setState(() {});
   }
 
   @override

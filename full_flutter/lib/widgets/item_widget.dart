@@ -12,7 +12,7 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: StadiumBorder(),
+      // shape: StadiumBorder(),
       // color: Colors.lightBlueAccent,
       shadowColor: Colors.blue,
       // elevation: 5,

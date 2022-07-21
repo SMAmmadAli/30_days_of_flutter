@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
     var day = "Friday";
     const pi = 3.142;
 
-    final dummyList = List.generate(50,(index) => CatalogModel.items[0]);
+    // final dummyList = List.generate(50,(index) => CatalogModel.items[0]);
 
     return Scaffold(
       appBar: AppBar(
@@ -27,9 +27,9 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10.0,15.0,10.0,10.0),
         child: ListView.builder(
-          itemCount: dummyList.length,
+          itemCount: CatalogModel.items.length,
           itemBuilder: (context, index){
-            return ItemWidget(item: dummyList[index],);
+            return ItemWidget(item: CatalogModel.items[index],);
           }
         ),
       ),
