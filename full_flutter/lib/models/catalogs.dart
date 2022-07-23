@@ -21,14 +21,14 @@ class Item {
   final String image;
 
   Item(
-      {required this.id,
-      required this.name,
-      required this.desc,
-      required this.price,
-      required this.color,
-      required this.image});
+      { required this.id,
+         required this.name,
+         required this.desc,
+         required this.price,
+         required this.color,
+         required this.image});
 
-  factory Item.fromMap(Map<String,dynamic>map){
+  factory Item.fromMap(Map<String,dynamic> map){
     return Item(
       id: map["id"],
       name: map["name"],
@@ -47,4 +47,4 @@ class Item {
   "color" : color,
   "image" : image,
   };
-}
+ }
