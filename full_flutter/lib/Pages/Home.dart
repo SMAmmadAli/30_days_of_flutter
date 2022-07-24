@@ -15,37 +15,36 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final String sentance = "Hello Flutter ";
+  final double bnum = 2.35;
+  final String name = "Babar Azam";
+  final int num = 56;
+  final bool isMale = true;
+  var day = "Friday";
+  final pi = 3.142;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    await Future.delayed(Duration(seconds: 2));
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodedData = jsonDecode(catalogJson);
+    var productData = decodedData["products"];
+    // List<Item> list =
+    CatalogModel.items =
+        List.from(productData).map<Item>((item) => Item.fromMap(item)).toList();
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final String sentance = "Hello Flutter ";
-    final double bnum = 2.35;
-    final String name = "Babar Azam";
-    final int num = 56;
-    final bool isMale = true;
-    var day = "Friday";
-    const pi = 3.142;
-
-    // loadData() async {
-    //   final catalogJson =
-    //       await rootBundle.loadString("assets/files/catalog.json");
-    //   final decodedData = jsonDecode(catalogJson);
-    //   var productData = decodedData["products"];
-    //   // List<Item> list =
-    //        CatalogModel.items =
-    //       List.from(productData)
-    //           .map<Item>((item) => Item.fromMap(item))
-    //           .toList();
-    //   setState(() {});
-    // }
-
-    // @override
-    // void initState() {
-    //   // TODO: implement initState
-    //   super.initState();
-    //   loadData();
-    // };
-
     // final dummyList = List.generate(8,(index) => CatalogModel.items[0]);
-
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -56,13 +55,15 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10.0, 15.0, 10.0, 10.0),
-        child: ListView.builder(
-            itemCount: CatalogModel.items.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(
-                item: CatalogModel.items[index],
-              );
-            }),
+        child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
+            ? ListView.builder(
+                itemCount: CatalogModel.items.length,
+                itemBuilder: (context, index) => ItemWidget(
+                      item: CatalogModel.items[index],
+                    ))
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
       ),
       // body: Center(
       //   child: SingleChildScrollView(

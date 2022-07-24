@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:full_flutter/Pages/Login_page.dart';
 import 'package:full_flutter/Pages/Home.dart';
+import 'package:full_flutter/models/grid_view_item.dart';
 // import 'package:full_flutter/models/catalogs.dart';
 import 'package:full_flutter/utils/routes.dart';
 import 'package:full_flutter/widgets/themes.dart';
@@ -35,6 +36,7 @@ class _MyAppState extends State<MyApp> {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.gridViewRoute: (context) => GridViewPage(),
       },
     );
   }
