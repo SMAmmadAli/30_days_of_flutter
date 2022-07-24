@@ -44,7 +44,6 @@ class _HomePageState extends State<HomePage> {
     //   loadData();
     // };
 
-
     // final dummyList = List.generate(8,(index) => CatalogModel.items[0]);
 
     return Scaffold(
