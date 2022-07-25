@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:full_flutter/models/catalogs.dart';
+import 'package:full_flutter/utils/routes.dart';
 
 class ItemWidget extends StatelessWidget {
   final Item item;
@@ -16,7 +17,7 @@ class ItemWidget extends StatelessWidget {
       shadowColor: Colors.blue,
       // elevation: 5,
       child: ListTile(
-        onTap: () => print("${item.name} Pressed"),
+        onTap: () => Navigator.pushNamed(context, MyRoutes.gridViewRoute),
         leading: Image.network(item.image),
         title: Text(item.name),
         subtitle: Text(item.desc),
