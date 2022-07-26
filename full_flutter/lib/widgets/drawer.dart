@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:full_flutter/utils/routes.dart';
 
 class myDrawer extends StatelessWidget {
 
@@ -33,12 +34,14 @@ final myImage = "assets/images/Ammad.jpg";
                   color: Colors.white,
                   ),
               title: 
-                Text("Home",
+                Text("Velocity X UI",
                 textScaleFactor: 1.2,
                 style: TextStyle(
+                  letterSpacing: 4,
                   color: Colors.white,
                 ),
                 ),
+                onTap: () => Navigator.pushNamed(context, MyRoutes.VelXUI),
             ),
             ListTile(
               leading: 
