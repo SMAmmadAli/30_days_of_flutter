@@ -3,4 +3,5 @@ class MyRoutes{
   static String homeRoute = "/home";
   static String gridViewRoute = "/Gogrid";
   static String VelXUI = "/XUI";
+  static String CartRoute = "/Cart";
 }

@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:full_flutter/models/catalogs.dart';
 import 'package:full_flutter/utils/routes.dart';
@@ -8,6 +9,7 @@ import 'package:full_flutter/models/catalogs.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:full_flutter/widgets/themes.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -46,6 +48,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(8,(index) => CatalogModel.items[0]);
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRoute),
+        backgroundColor: MyTheme.darkbluish,
+        child: Icon(CupertinoIcons.cart),
+      ),
       appBar: AppBar(
         title: Center(
             child: Text(

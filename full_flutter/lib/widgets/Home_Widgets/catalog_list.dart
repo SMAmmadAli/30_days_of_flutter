@@ -1,15 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:full_flutter/Pages/home_detail_page.dart';
 import 'package:full_flutter/models/catalogs.dart';
+import 'package:full_flutter/utils/routes.dart';
 import 'package:full_flutter/widgets/themes.dart';
-
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRoute),
+        backgroundColor: MyTheme.darkbluish,
+        child: Icon(CupertinoIcons.cart),),
+       body: ListView.builder(
       shrinkWrap: true,
       itemBuilder: (context, index) {
         final catalog = CatalogModel.items[index];
@@ -23,6 +29,7 @@ class CatalogList extends StatelessWidget {
             child: CatalogItem(catalog: catalog));
       },
       itemCount: CatalogModel.items.length,
+    )
     );
   }
 }
@@ -41,8 +48,8 @@ class CatalogItem extends StatelessWidget {
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20), color: Colors.white),
-      padding: EdgeInsets.only(bottom: 8, top: 8),
-      margin: EdgeInsets.all(20),
+      padding: const EdgeInsets.only(bottom: 8, top: 8),
+      margin: const EdgeInsets.all(20),
       child: Row(
         children: [
           Hero(
@@ -64,7 +71,7 @@ class CatalogItem extends StatelessWidget {
                     )),
                 Text(
                   catalog.desc,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 12,
                   ),
@@ -76,7 +83,7 @@ class CatalogItem extends StatelessWidget {
                       Text(
                         "\$${catalog.price}",
                         textScaleFactor: 1.2,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -86,7 +93,7 @@ class CatalogItem extends StatelessWidget {
                             backgroundColor:
                                 MaterialStateProperty.all(MyTheme.darkbluish),
                             shape: MaterialStateProperty.all(StadiumBorder())),
-                        child: Text("Buy"),
+                        child: const Text("Add to cart"),
                       )
                     ],
                   ),

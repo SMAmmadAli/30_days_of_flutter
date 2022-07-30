@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:full_flutter/models/catalogs.dart';
 import 'package:full_flutter/widgets/themes.dart';
@@ -13,7 +14,7 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.transparent,),
       bottomNavigationBar: ButtonBar(
         alignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -34,7 +35,7 @@ class HomeDetailPage extends StatelessWidget {
                               backgroundColor:
                                   MaterialStateProperty.all(MyTheme.darkbluish),
                               shape: MaterialStateProperty.all(StadiumBorder())),
-                          child: Text("Buy"),
+                          child: Text("Add to cart"),
                         ),
                       )
                     ],
