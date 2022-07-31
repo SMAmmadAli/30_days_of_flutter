@@ -14,7 +14,8 @@ class catalogImage extends StatelessWidget {
     return Container(
       child: Image.network(image, width: MediaQuery.of(context).size.width/8,),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8), color: MyTheme.creameColor),
+          borderRadius: BorderRadius.circular(8),
+          color: Theme.of(context).canvasColor),
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(8),
       width: MediaQuery.of(context).size.width / 4,

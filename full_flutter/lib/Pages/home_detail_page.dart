@@ -27,20 +27,20 @@ class HomeDetailPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 80,
+                        width: MediaQuery.of(context).size.width * 0.3,
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ButtonStyle(
                               backgroundColor:
-                                  MaterialStateProperty.all(MyTheme.darkbluish),
+                                  MaterialStateProperty.all(Theme.of(context).primaryColor),
                               shape: MaterialStateProperty.all(StadiumBorder())),
                           child: Text("Add to cart"),
                         ),
                       )
                     ],
       ),
-      backgroundColor: MyTheme.creameColor,
+      backgroundColor: Theme.of(context).canvasColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -71,7 +71,7 @@ class HomeDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                color: Colors.white,
+                color: Theme.of(context).cardColor,
                 // constraints: BoxConstraints.tightForFinite(width: 200),
                 transform: Matrix4.rotationZ(0.05),
               )),
@@ -84,7 +84,7 @@ class HomeDetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 30,
-                          color: MyTheme.darkbluish,
+                          color: Theme.of(context).secondaryHeaderColor,
                         )),
                   Text(
                     catalog.desc,

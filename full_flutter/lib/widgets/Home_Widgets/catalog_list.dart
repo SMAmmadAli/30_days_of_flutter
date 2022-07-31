@@ -11,26 +11,27 @@ class CatalogList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRoute),
-        backgroundColor: MyTheme.darkbluish,
-        child: Icon(CupertinoIcons.cart),),
-       body: ListView.builder(
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
-        return InkWell(
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => HomeDetailPage(
-                          catalog: catalog,
-                        ))),
-            child: CatalogItem(catalog: catalog));
-      },
-      itemCount: CatalogModel.items.length,
-    )
-    );
+        backgroundColor: Theme.of(context).canvasColor,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRoute),
+          backgroundColor: Theme.of(context).primaryColor,
+          child: Icon(CupertinoIcons.cart, color: Colors.white,),
+        ),
+        body: ListView.builder(
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            final catalog = CatalogModel.items[index];
+            return InkWell(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomeDetailPage(
+                              catalog: catalog,
+                            ))),
+                child: CatalogItem(catalog: catalog));
+          },
+          itemCount: CatalogModel.items.length,
+        ));
   }
 }
 
@@ -47,7 +48,9 @@ class CatalogItem extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Colors.white),
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(20),
+          ),
       padding: const EdgeInsets.only(bottom: 8, top: 8),
       margin: const EdgeInsets.all(20),
       child: Row(
@@ -67,7 +70,7 @@ class CatalogItem extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: MyTheme.darkbluish,
+                      color: Theme.of(context).secondaryHeaderColor,
                     )),
                 Text(
                   catalog.desc,
@@ -91,7 +94,7 @@ class CatalogItem extends StatelessWidget {
                         onPressed: () {},
                         style: ButtonStyle(
                             backgroundColor:
-                                MaterialStateProperty.all(MyTheme.darkbluish),
+                                MaterialStateProperty.all(Theme.of(context).primaryColor),
                             shape: MaterialStateProperty.all(StadiumBorder())),
                         child: const Text("Add to cart"),
                       )

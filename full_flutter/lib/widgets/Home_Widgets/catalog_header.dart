@@ -10,7 +10,7 @@ class catologHeader extends StatelessWidget {
         Text(
           "Catalog App",
           style: TextStyle(
-            color: MyTheme.darkbluish,
+            color: Theme.of(context).secondaryHeaderColor,
             fontSize: 30,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.none,

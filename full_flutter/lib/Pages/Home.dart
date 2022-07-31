@@ -1,4 +1,3 @@
-import 'dart:html';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:full_flutter/models/catalogs.dart';
@@ -48,16 +47,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // final dummyList = List.generate(8,(index) => CatalogModel.items[0]);
     return Scaffold(
+      backgroundColor: Theme.of(context).canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRoute),
-        backgroundColor: MyTheme.darkbluish,
-        child: Icon(CupertinoIcons.cart),
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(CupertinoIcons.cart, color: Colors.white,),
       ),
       appBar: AppBar(
         title: Center(
             child: Text(
           "Catalog App",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Theme.of(context).secondaryHeaderColor),
         )),
       ),
       body: Padding(

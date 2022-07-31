@@ -7,6 +7,7 @@ class GridViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Theme.of(context).cardColor,
         child: Padding(
       padding: const EdgeInsets.all(15.0),
       child: (CatalogModel.items != null && CatalogModel.items.isNotEmpty)

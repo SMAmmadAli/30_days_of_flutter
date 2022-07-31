@@ -15,7 +15,7 @@ class _XUIState extends State<XUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: MyTheme.creameColor,
+        backgroundColor: Theme.of(context).canvasColor,
         body: SafeArea(
           child: Container(
             padding: EdgeInsets.all(32),
