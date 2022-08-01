@@ -23,6 +23,7 @@ class MyTheme{
   static ThemeData darktheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
         cardColor: Colors.black,
+        
         canvasColor: darkCreameColor,
         //buttonColor ke jaga primaryColor likha hai
         primaryColor: lightbluish,

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:full_flutter/Pages/home_detail_page.dart';
 import 'package:full_flutter/models/catalogs.dart';
 import 'package:full_flutter/utils/routes.dart';
-import 'package:full_flutter/widgets/themes.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
@@ -47,6 +46,7 @@ class CatalogItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height / 4,
+      width: MediaQuery.of(context).size.width * 0.9,
       decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(20),
@@ -64,7 +64,6 @@ class CatalogItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(catalog.name,
                     style: TextStyle(
