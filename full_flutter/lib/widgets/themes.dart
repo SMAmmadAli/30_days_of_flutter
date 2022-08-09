@@ -9,6 +9,7 @@ class MyTheme{
         //buttonColor ke jaga primaryColor likha hai
         primaryColor: darkbluish,
         //accent color ke jaga secondaryHeaderColor use kara hai
+        // colorScheme use hota hai accentColor ke jaga
         secondaryHeaderColor: darkbluish,
         // buttonTheme: ButtonThemeData(
         // buttonColor: darkbluish,
@@ -23,7 +24,6 @@ class MyTheme{
   static ThemeData darktheme(BuildContext context) => ThemeData(
         brightness: Brightness.dark,
         cardColor: Colors.black,
-        
         canvasColor: darkCreameColor,
         //buttonColor ke jaga primaryColor likha hai
         primaryColor: lightbluish,

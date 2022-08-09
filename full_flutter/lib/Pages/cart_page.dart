@@ -18,23 +18,22 @@ class CartPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(32.0),
-              child: Expanded(child: _CartList(),),
+              children: [
+                 Padding(
+                   padding: const EdgeInsets.all(16.0),
+                   child: Expanded(child: Placeholder()),
+                 ),
+                 Divider(),
+                 _cartTotal(),
+              ],
             ),
-            Divider(),
-            _cartTotal(),
-          ],
         ),
-      ),
-    );
+      );
   }
 }
 
 class _cartTotal extends StatelessWidget {
   const _cartTotal({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -65,25 +64,27 @@ class _cartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  @override
-  State<_CartList> createState() => __CartListState();
-}
+// class _CartList extends StatefulWidget {
+//   @override
+//   State<_CartList> createState() => __CartListState();
+// }
 
-class __CartListState extends State<_CartList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 5,
-      itemBuilder: (context, index) => 
-      ListTile(
-        leading: Icon(Icons.done),
-        trailing: IconButton(icon: Icon(Icons.delete),
-        onPressed: (){},
-        ),
-         title: Text("Item 1"),
-      ),
-      
-    );
-  }
-}
+// class __CartListState extends State<_CartList> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//         itemCount: 5,
+//         itemBuilder: (context, index) => ListTile(
+//           leading: Icon(Icons.done, color: Theme.of(context).primaryColor,),
+//           trailing: IconButton(icon: Icon(Icons.delete, color: Theme.of(context).primaryColor),
+//           onPressed: (){},
+//           ),
+//           title: Text("Item 1",
+//                     style: TextStyle(
+//                     fontSize: 28,
+//                     color: Theme.of(context).secondaryHeaderColor,
+//                   )),
+//         ),
+//     );
+//   }
+// }
