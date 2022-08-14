@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:full_flutter/models/cart.dart';
 import 'package:full_flutter/widgets/themes.dart';
 
 class CartPage extends StatelessWidget {
@@ -33,7 +34,7 @@ class CartPage extends StatelessWidget {
 }
 
 class _cartTotal extends StatelessWidget {
-  const _cartTotal({Key? key}) : super(key: key);
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,7 +42,7 @@ class _cartTotal extends StatelessWidget {
         child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("\$349",
+        Text("\$${_cart.totalPrice}",
             style: TextStyle(
               fontSize: 28,
               color: Theme.of(context).secondaryHeaderColor,
@@ -74,12 +75,13 @@ class _CartList extends StatefulWidget {
 }
 
 class __CartListState extends State<_CartList> {
+  final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
-      itemCount: 5,
+      itemCount: _cart.items?.length,
       itemBuilder: (context, index) => ListTile(
         leading: Icon(
           Icons.done,
@@ -89,7 +91,7 @@ class __CartListState extends State<_CartList> {
           icon: Icon(Icons.delete, color: Theme.of(context).primaryColor),
           onPressed: () {},
         ),
-        title: Text("Item 1",
+        title: Text(_cart.items[index].name,
             style: TextStyle(
               fontSize: 28,
               color: Theme.of(context).secondaryHeaderColor,
