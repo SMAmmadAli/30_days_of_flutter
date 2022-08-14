@@ -25,6 +25,10 @@ class CatalogModel {
     //         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQROEs084z65psoo06zYl5R0tUzywOVKVQZzmzqCj3PDP1vVJTWv3gGwGMFENSy4qV4n7sEQjE&usqp=CAc",
     // ),
   ];
+ Item getById(int id)=>
+  items.firstWhere((element)=> element.id == id, orElse: null);
+
+  Item getByPosition(int pos)=>items[pos];
 }
 
 class Item {

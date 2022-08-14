@@ -37,7 +37,7 @@ class _cartTotal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        // height: MediaQuery.of(context).size.height * 0.4,
+        height: MediaQuery.of(context).size.height * 0.4,
         child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -47,15 +47,17 @@ class _cartTotal extends StatelessWidget {
               color: Theme.of(context).secondaryHeaderColor,
             )),
         SizedBox(
-            // width: MediaQuery.of(context).size.width * 0.2,
+            width: MediaQuery.of(context).size.width * 0.4,
             child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Buying not supported yet!"),));
+          },
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all(Theme.of(context).primaryColor)),
           child: Text(
             "Buy",
-            style: TextStyle(
+            style: TextStyle( 
               fontSize: 18,
               color: Theme.of(context).secondaryHeaderColor,
             ),
