@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:full_flutter/models/cart.dart';
 import 'package:full_flutter/widgets/themes.dart';
@@ -78,7 +79,7 @@ class __CartListState extends State<_CartList> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return _cart.items.isEmpty?  Center(child: Text("Nothing to show", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))): ListView.builder(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       itemCount: _cart.items?.length,
@@ -88,8 +89,11 @@ class __CartListState extends State<_CartList> {
           color: Theme.of(context).primaryColor,
         ),
         trailing: IconButton(
-          icon: Icon(Icons.delete, color: Theme.of(context).primaryColor),
-          onPressed: () {},
+          icon: Icon(CupertinoIcons.minus_circle, color: Theme.of(context).primaryColor),
+          onPressed: () {
+            _cart.remove(_cart.items[index]);
+            setState(() {});
+          },
         ),
         title: Text(_cart.items[index].name,
             style: TextStyle(
